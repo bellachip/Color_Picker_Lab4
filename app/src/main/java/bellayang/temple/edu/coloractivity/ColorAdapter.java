@@ -21,15 +21,15 @@ public class ColorAdapter extends BaseAdapter{
     private final Context activity;
     private final ArrayList<ColorItem> arr;
     private final ConstraintLayout cl;
-
+    //constructor
    public ColorAdapter(Context context, ArrayList<ColorItem> arr,  ConstraintLayout cl){
 
        this.arr = arr;
        this.activity = context;
-       this.cl = cl;
+         this.cl = cl;
    }
     @NonNull
-
+    //fields
     @Override
     public int getCount() {
         return this.arr.size();
@@ -56,32 +56,39 @@ public class ColorAdapter extends BaseAdapter{
            LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
            convertView = inflater.inflate(R.layout.spinner_custom_layout, parent, false);
 
-
        }
-
-
-
         //setContentView(R.layout.activity_color).setBackgroundColor(getResources().getColor(android.R.color.red));
         TextView txtID = convertView.findViewById(R.id.spinner_text);
        //txtID.setBackgroundColor(Color.RED);
-        if (position == 1){
-            convertView.setBackgroundColor(Color.RED);
 
-
-        } else if (position == 0) {
+        if (position == 0){
             convertView.setBackgroundColor(0);
-        }
-        else if (position == 2 ){
+        } else if (position ==1 ) {
+            convertView.setBackgroundColor(Color.RED);
+        } else if (position == 2 ){
             convertView.setBackgroundColor(Color.YELLOW);
-
         } else if (position == 3 ){
             convertView.setBackgroundColor(Color.BLUE);
         } else if (position == 4 ){
             convertView.setBackgroundColor(Color.BLACK);
         } else if (position == 5 ){
             convertView.setBackgroundColor(Color.WHITE);
+        } else if (position == 6 ){
+            convertView.setBackgroundColor(Color.CYAN);
+        } else if (position == 7 ){
+            convertView.setBackgroundColor(Color.DKGRAY);
+        } else if (position == 8 ){
+            convertView.setBackgroundColor(Color.GRAY);
+        } else if (position == 9 ){
+            convertView.setBackgroundColor(Color.GREEN);
+        } else if (position == 10 ){
+            convertView.setBackgroundColor(Color.LTGRAY);
+        } else if (position == 11 ){
+            convertView.setBackgroundColor(Color.MAGENTA);
         }
-       ColorItem color = getItem(position);
+
+
+        ColorItem color = getItem(position);
        if (color != null) {
            txtID.setText(color.getColorName());
 

@@ -4,6 +4,7 @@ package bellayang.temple.edu.coloractivity;
  * Created by Belle on 10/1/19.
  */
 
+//The color object
 public class ColorItem {
 
     private String colorName;

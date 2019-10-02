@@ -25,55 +25,59 @@ public class ColorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color);
 
-
+        //Background Layout
         currentLayout = findViewById(R.id.curr_layout);
+        //arr for colors
+        String arr [] = {"Choose a color", "Red", "Yellow", "Blue" , "Black", "White", "Cyan", "Dark Gray", "Gray", "Green", "Light Gray", "Magenta"};
+        //arraylist for colors colorItem
         ArrayList<ColorItem> colors = new ArrayList<ColorItem>();
-
-
-
+        //Spinner
         spinner = findViewById(R.id.spinner);
-         //spinner.setTextColor(Color.YELLOW);
-
         ColorAdapter adapter = new ColorAdapter(this ,  colors, currentLayout);
 
-        //dummylist
-        colors.add(new ColorItem( "Choose a color" + String.valueOf(0), 0));
-        colors.add(new ColorItem( "Red" + String.valueOf(1), 1));
-        colors.add(new ColorItem( "Yellow" + String.valueOf(2), 2));
-        colors.add(new ColorItem( "Blue" + String.valueOf(3), 3));
-        colors.add(new ColorItem( "Black" + String.valueOf(4), 4));
-        colors.add(new ColorItem( "White" + String.valueOf(5), 5));
+        //stores coloradapters inside the adapter
+        for (int i=0; i < arr.length ; i++) {
+            colors.add(new ColorItem(arr[i], i));
 
 
+        }
 
         spinner.setAdapter(adapter);
-
+        //selection action
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-
+                //Sets the background color to white
                 view.setBackgroundColor(Color.WHITE);
 
                // TextView txtID = (TextView) findViewById(R.id.spinner_text);
-                //txtID.setBackgroundColor(Color.WHITE);
-                if (id == 1){
-                    currentLayout.setBackgroundColor(Color.RED);
-
-                } else if (id ==0 ) {
+                //Sets the colors depending on the selection
+                if (id == 0){
                     currentLayout.setBackgroundColor(0);
-                }
-                else if (id == 2 ){
+                } else if (id ==1 ) {
+                    currentLayout.setBackgroundColor(Color.RED);
+                } else if (id == 2 ){
                     currentLayout.setBackgroundColor(Color.YELLOW);
-
                 } else if (id == 3 ){
                     currentLayout.setBackgroundColor(Color.BLUE);
                 } else if (id == 4 ){
                     currentLayout.setBackgroundColor(Color.BLACK);
                 } else if (id == 5 ){
                     currentLayout.setBackgroundColor(Color.WHITE);
+                } else if (id == 6 ){
+                currentLayout.setBackgroundColor(Color.CYAN);
+                } else if (id == 7 ){
+                    currentLayout.setBackgroundColor(Color.DKGRAY);
+                } else if (id == 8 ){
+                    currentLayout.setBackgroundColor(Color.GRAY);
+                } else if (id == 9 ){
+                    currentLayout.setBackgroundColor(Color.GREEN);
+                } else if (id == 10 ){
+                    currentLayout.setBackgroundColor(Color.LTGRAY);
+                } else if (id == 11 ){
+                    currentLayout.setBackgroundColor(Color.MAGENTA);
                 }
-
 
             }
 
